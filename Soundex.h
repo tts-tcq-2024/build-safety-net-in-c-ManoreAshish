@@ -4,10 +4,12 @@
 #include "Soundex.h"
 #include <ctype.h>
 #include <string.h>
+int Counter=0;
 
-char getSoundexCode(char test) {
+char getSoundexCode(char test)
+{
     test = toupper(test);
-    int Counter=0;
+    
     /*switch (c) {
         case 'B': case 'F': case 'P': case 'V': return '1';
         case 'C': case 'G': case 'J': case 'K': case 'Q': case 'S': case 'X': case 'Z': return '2';
@@ -16,6 +18,15 @@ char getSoundexCode(char test) {
         case 'M': case 'N': return '5';
         case 'R': return '6';
         default: return '0'; // For A, E, I, O, U, H, W, Y */
+    Result= isBFPV (test);
+    if(Counter == 0) Result=isCGJ (test);
+    if(Counter == 0) Result=isDT(test);
+    if(Counter == 0) Result= isL(test);
+    if(Counter==0) Result=isMN(test);
+    if(Counter==0) Result= isR(test);
+     else return 0;
+}   
+    
 
     void isBFPV(char test)
     {
@@ -23,52 +34,47 @@ char getSoundexCode(char test) {
             return 1;
         Counter++;
     }
-    if(Counter == 0)
-    {
+    
+    
      void isCGJ (char test)
-        {
+    {
             if(test== 'C')
                 return 2;
             Counter++;
-        }
     }
-    if(Counter == 0)
-    {
-        void isDT (char test)
+  
+     void isDT (char test)
     { if(test=='D')
         return 3;
         Counter++;
     }
-    }
-    if(Counter == 0)
-    {
-        isL (char test)
-        {
+    
+   
+    void  isL (char test)
+     {
           if(test=='L')  
               return 4;
             counter++;
-        }
-    }
-    if(Counter==0)
-    {
-        isMN(char test)
+     }
+    
+    
+    
+        void isMN(char test)
         {
             if(test == 'M')
                 return 5;
             Counter++;
         }
-    }
-    if(Counter ==0)
-    {
-        isR(char test)
+
+       void isR(char test)
         {
             if(test == 'R')
                 return 6;
             Counter++;
         }
-    }
-    else return 0;
-}
+    
+   
+
 
 void generateSoundex(const char *name, char *soundex) {
     int len = strlen(name);
