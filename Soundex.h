@@ -9,7 +9,7 @@ int Counter=0;
 char getSoundexCode(char test)
 {
     test = toupper(test);
-    
+    int Result=0;
     /*switch (c) {
         case 'B': case 'F': case 'P': case 'V': return '1';
         case 'C': case 'G': case 'J': case 'K': case 'Q': case 'S': case 'X': case 'Z': return '2';
@@ -18,6 +18,7 @@ char getSoundexCode(char test)
         case 'M': case 'N': return '5';
         case 'R': return '6';
         default: return '0'; // For A, E, I, O, U, H, W, Y */
+    
     Result= isBFPV (test);
     if(Counter == 0) Result=isCGJ (test);
     if(Counter == 0) Result=isDT(test);
@@ -28,7 +29,7 @@ char getSoundexCode(char test)
 }   
     
 
-    void isBFPV(char test)
+    int isBFPV(char test)
     {
         if(test== 'B' || 'F' || 'P' || 'V')
             return 1;
@@ -36,37 +37,37 @@ char getSoundexCode(char test)
     }
     
     
-     void isCGJ (char test)
+     int isCGJ (char test)
     {
             if(test== 'C')
                 return 2;
             Counter++;
     }
   
-     void isDT (char test)
+     int isDT (char test)
     { if(test=='D')
         return 3;
         Counter++;
     }
     
    
-    void  isL (char test)
+    int  isL (char test)
      {
-          if(test=='L')  
-              return 4;
-            counter++;
+        if(test=='L')  
+        return 4;
+        Counter++;
      }
     
     
     
-        void isMN(char test)
+        int isMN(char test)
         {
             if(test == 'M')
                 return 5;
             Counter++;
         }
 
-       void isR(char test)
+       int isR(char test)
         {
             if(test == 'R')
                 return 6;
