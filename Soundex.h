@@ -60,7 +60,7 @@ int isJK (char test)
 
 int isQS (char test)
 {
- if((test== 'Q' || (test=='S'))
+ if((test== 'Q') || (test=='S'))
  return 2;
  else isXZ(test);
 }
