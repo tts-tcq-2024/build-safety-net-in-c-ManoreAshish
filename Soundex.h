@@ -4,8 +4,12 @@
 #include "Soundex.h"
 #include <ctype.h>
 #include <string.h>
-int isBFPV(char test);
-int isCGJ (char test);
+int isBF(char test);
+int isPV(char test);
+int isCG (char test);
+int isJK (char test);
+int isQS (char test);
+int isXZ (char test)
 int isDT (char test);
 int  isL (char test);
 int isMN(char test);
@@ -17,27 +21,55 @@ char getSoundexCode(char test)
 {
     test = toupper(test);
     int Result=0;
-    Result= isBFPV (test);
+    Result= isBF (test);
 }   
     
 
-int isBFPV(char test)
+int isBF(char test)
 {
- if(test== 'B' || 'F' || 'P' || 'V')
+ if(test== 'B' || 'F')
  return 1;
- else isCGJ(test);
+ else isPV(test);
+}
+
+int isPV(char test)
+{
+ if(test== 'P' || 'V')
+ return 1;
+ else isCG(test);
 }
     
     
-int isCGJ (char test)
+int isCG (char test)
 {
- if(test== 'C')
+ if(test== 'C' || 'G')
+ return 2;
+ else isJK(test);
+}
+
+int isJK (char test)
+{
+ if(test== 'J' || 'K')
+ return 2;
+ else isQS(test);
+}
+
+int isQS (char test)
+{
+ if(test== 'Q' || 'S')
+ return 2;
+ else isXZ(test);
+}
+
+int isXZ (char test)
+{
+ if(test== 'X' || 'Z')
  return 2;
  else isDT(test);
 }
   
 int isDT (char test)
-{ if(test=='D')
+{ if(test=='D' || 'T')
   return 3;
   else isL(test);
 }
@@ -52,7 +84,7 @@ int  isL (char test)
 
 int isMN(char test)
 {
- if(test == 'M')
+ if(test == 'M' || 'N')
  return 5;
  else isR(test);
 }
