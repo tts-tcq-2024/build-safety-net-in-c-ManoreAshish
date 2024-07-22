@@ -9,11 +9,11 @@ int isPV(char test);
 int isCG (char test);
 int isJK (char test);
 int isQS (char test);
-int isXZ (char test)
+int isXZ (char test);
 int isDT (char test);
 int  isL (char test);
 int isMN(char test);
- int isR(char test);
+int isR(char test);
 
 
 
