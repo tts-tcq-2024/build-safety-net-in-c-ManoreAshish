@@ -125,3 +125,4 @@ void ZeroPadding(char *soundex)
 
     soundex[4] = '\0';
 }
+#endif // SOUNDEX_H
