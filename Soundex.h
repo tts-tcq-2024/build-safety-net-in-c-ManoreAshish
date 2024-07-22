@@ -14,7 +14,8 @@ int isDT (char test);
 int  isL (char test);
 int isMN(char test);
 int isR(char test);
-void ZeroPadding(char soundex[5]);
+void ZeroPadding(char *soundex);
+void UpdateSoundex (char *soundex);
 int sIndex = 1;
 char code=0;
 
