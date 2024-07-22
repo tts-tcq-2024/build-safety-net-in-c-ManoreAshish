@@ -31,14 +31,14 @@ char getSoundexCode(char test)
 
 int isBF(char test)
 {
- if(test== 'B' || 'F')
+ if((test== 'B') || (test== 'F'))
  return 1;
  else isPV(test);
 }
 
 int isPV(char test)
 {
- if(test== 'P' || 'V')
+ if((test== 'P') ||(test== 'V'))
  return 1;
  else isCG(test);
 }
@@ -46,34 +46,34 @@ int isPV(char test)
     
 int isCG (char test)
 {
- if(test== 'C' || 'G')
+ if((test== 'C' )|| (test=='G'))
  return 2;
  else isJK(test);
 }
 
 int isJK (char test)
 {
- if(test== 'J' || 'K')
+ if((test== 'J') || (test=='K'))
  return 2;
  else isQS(test);
 }
 
 int isQS (char test)
 {
- if(test== 'Q' || 'S')
+ if((test== 'Q' || (test=='S'))
  return 2;
  else isXZ(test);
 }
 
 int isXZ (char test)
 {
- if(test== 'X' || 'Z')
+ if((test== 'X') || (test=='Z'))
  return 2;
  else isDT(test);
 }
   
 int isDT (char test)
-{ if(test=='D' || 'T')
+{ if((test=='D') || (test=='T'))
   return 3;
   else isL(test);
 }
@@ -88,7 +88,7 @@ int  isL (char test)
 
 int isMN(char test)
 {
- if(test == 'M' || 'N')
+ if((test == 'M') || (test=='N'))
  return 5;
  else isR(test);
 }
@@ -119,7 +119,8 @@ void UpdateSoundex (char *soundex)
 {
      if (code != '0' && code != soundex[sIndex - 1]) 
         {
-            soundex[sIndex++] = code;
+            soundex[sIndex] = code;
+            sIndex++;
         }
 }
 
