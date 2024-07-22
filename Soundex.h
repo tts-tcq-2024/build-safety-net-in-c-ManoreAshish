@@ -14,6 +14,7 @@ int isDT (char test);
 int  isL (char test);
 int isMN(char test);
 int isR(char test);
+void ZeroPadding(char *soundex);
 int sIndex = 1;
 
 
@@ -112,7 +113,7 @@ void generateSoundex(const char *name, char *soundex)
             soundex[sIndex++] = code;
         }
     }
-    ZeroPadding(soundex[]);
+    ZeroPadding(soundex[sIndex]);
 }
 
 void ZeroPadding(char *soundex)
