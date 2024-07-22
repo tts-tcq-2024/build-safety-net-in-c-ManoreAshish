@@ -14,6 +14,7 @@ int isDT (char test);
 int  isL (char test);
 int isMN(char test);
 int isR(char test);
+int sIndex = 1;
 
 
 
@@ -103,8 +104,6 @@ void generateSoundex(const char *name, char *soundex)
 {
     int len = strlen(name);
     soundex[0] = toupper(name[0]);
-    int sIndex = 1;
-
     for (int i = 1; i < len && sIndex < 4; i++) 
     {
         char code = getSoundexCode(name[i]);
@@ -113,7 +112,11 @@ void generateSoundex(const char *name, char *soundex)
             soundex[sIndex++] = code;
         }
     }
+    ZeroPadding(soundex[]);
+}
 
+void ZeroPadding(char *soundex)
+{
     while (sIndex < 4) 
     {
         soundex[sIndex++] = '0';
@@ -121,5 +124,3 @@ void generateSoundex(const char *name, char *soundex)
 
     soundex[4] = '\0';
 }
-
-#endif // SOUNDEX_H
