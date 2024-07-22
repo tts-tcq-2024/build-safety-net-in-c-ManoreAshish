@@ -4,7 +4,14 @@
 #include "Soundex.h"
 #include <ctype.h>
 #include <string.h>
-int Counter=0;
+int isBFPV(char test);
+int isCGJ (char test);
+int isDT (char test);
+int  isL (char test);
+int isMN(char test);
+ int isR(char test);
+
+
 
 char getSoundexCode(char test)
 {
