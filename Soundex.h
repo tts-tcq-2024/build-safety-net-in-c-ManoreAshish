@@ -101,7 +101,7 @@ else return 0;
    
 
 
-void generateSoundex(const char *name, char soundex[5]) 
+void generateSoundex(const char *name, char *soundex) 
 {
     int len = strlen(name);
     soundex[0] = toupper(name[0]);
@@ -113,10 +113,10 @@ void generateSoundex(const char *name, char soundex[5])
             soundex[sIndex++] = code;
         }
     }
-    ZeroPadding(soundex[sIndex]);
+    ZeroPadding(soundex);
 }
 
-void ZeroPadding(char soundex[5])
+void ZeroPadding(char *soundex)
 {
     while (sIndex < 4) 
     {
